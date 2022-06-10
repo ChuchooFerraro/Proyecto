@@ -17,5 +17,5 @@ def index(request):
     return render(
         request=request,
         context=context_dict,
-        template_name="home2/cursos.html"
+        template_name="home2/home2.html"
     )
