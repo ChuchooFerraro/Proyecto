@@ -1,0 +1,17 @@
+{% extends "home2/index.html" %}
+{% load static %}
+{% block lista_de_cursos_home_content %}
+
+
+
+{% if courses %}
+<ul>
+    {% for course in courses %}
+    <li><a href="#!">
+        {{course.name}}
+    </a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}
