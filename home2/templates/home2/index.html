@@ -21,11 +21,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="{% url 'home2:index' %}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Cursos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Alumnos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Profesores</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'home2:about_us' %}">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'course:course-list' %}">Cursos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'student:student-list' %}">Alumnos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'profesor:profesor-list' %}">Profesores</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'user:user-login' %}">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -37,6 +37,7 @@
                     <!-- Post content-->
                     <article>
                         <!-- Post header-->
+                        {% block coderhouse_project_content %}
                         <header class="mb-4">
                             <!-- Post title-->
                             <h1 class="fw-bolder mb-1">Welcome to Blog Post!</h1>
@@ -57,6 +58,7 @@
                             <p class="fs-5 mb-4">For me, the most fascinating interface is Twitter. I have odd cosmic thoughts every day and I realized I could hold them to myself or share them with people who might be interested.</p>
                             <p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
                         </section>
+                        {% endblock %}
                     </article>
                     <!-- Comments section-->
                     <section class="mb-5">
