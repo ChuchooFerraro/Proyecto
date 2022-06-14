@@ -11,6 +11,10 @@
         <link rel="icon" type="image/x-icon" href="{% static 'home2/assets/favicon.ico' %}" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'home2/css/styles.css' %}" rel="stylesheet" />
+        <!-- Frontawesome-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="{% static 'font-awesome-4.7.0/css/all.min.css' %}" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -25,7 +29,13 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'course:course-list' %}">Cursos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'student:student-list' %}">Alumnos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'profesor:profesor-list' %}">Profesores</a></li>
+                        {% if user.is_authenticated %}
+                        <a class="navbar-brand" href="{% url 'homework:homework-list' %}">Entregables</a>
+                        <a class="btn btn-secondary" href="{% url 'user:user-update' %}">Editar usuario</a>
+                        <a class="btn btn-primary" href="{% url 'user:user-logout' %}">Cerrar Sesión</a>
+                        {% else %}
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'user:user-login' %}">Login</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
