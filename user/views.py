@@ -13,9 +13,12 @@ from user.models import Avatar
 
 
 def register(request):
+    print("entraste en register")
     if request.method == 'POST':
+        print("ES UN POST")
         form = UserRegisterForm(request.POST)
         if form.is_valid():
+            print("ES UN FORM VALIDO")
             form.save()
             messages.success(request, "Usuario creado exitosamente!")
             return redirect("user:user-login")
@@ -36,7 +39,7 @@ def login_request(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect("home:main")
+                return redirect("home2:index")
 
         return render(
             request=request,
