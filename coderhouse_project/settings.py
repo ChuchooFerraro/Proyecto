@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'student',
     'user',
     'home2',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -145,4 +146,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-# Heroku configs
+# ckeditor configs
+MEDIA_URL ='/media/'
+CKEDITOR_UPLOAD_PATH = 'uploads/'

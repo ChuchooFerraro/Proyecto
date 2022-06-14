@@ -10,7 +10,7 @@
 <ul>
     {% for course in course_list %}
     <li>
-        {{course}}
+        {{course.description}}
         (
             <a href="{% url 'course:course-detail' course.id %}">
                 <i class="fa fa-eye" style="color: rgb(0, 0, 255);"> </i>
