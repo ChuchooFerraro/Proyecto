@@ -30,7 +30,7 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'student:student-list' %}">Alumnos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'profesor:profesor-list' %}">Profesores</a></li>
                         {% if user.is_authenticated %}
-                        <a class="navbar-brand" href="{% url 'homework:homework-list' %}">Entregables</a>
+                        <a class="nav-item" href="{% url 'homework:homework-list' %}">Entregables</a>
                         <a class="btn btn-secondary" href="{% url 'user:user-update' %}">Editar usuario</a>
                         <a class="btn btn-primary" href="{% url 'user:user-logout' %}">Cerrar Sesión</a>
                         {% else %}
@@ -137,11 +137,6 @@
                                     {% endblock %}
                                 </div>
                                 <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>

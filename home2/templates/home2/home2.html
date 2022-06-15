@@ -32,7 +32,7 @@
 {% if courses %}
 <ul>
     {% for course in courses %}
-    <li><a href="#!">
+    <li><a href="{% url 'course:course-detail' course.id %}">
         {{course.name}}
     </a></li>
     {% endfor %}

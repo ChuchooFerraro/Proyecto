@@ -30,10 +30,15 @@ def index(request):
 
 
 def about_us(request):
-    context_dict = {}
+    courses = Course.objects.all()
+    context_dict={
+        'courses': courses,
+    }
     return render(
         request=request,
         context=context_dict,
         template_name="home2/about_us.html"
     )
 
+def error_404(request, exception, template_name='home2/404.html'):
+    return render(request, 'home2/404.html')
