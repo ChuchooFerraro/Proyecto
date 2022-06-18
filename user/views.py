@@ -68,7 +68,7 @@ def user_update(request):
         if form.is_valid():
             form.save()
 
-            return redirect('home:main')
+            return redirect('home2:index')
 
     form= UserEditForm(model_to_dict(user))
     return render(
@@ -80,6 +80,7 @@ def user_update(request):
 
 @login_required
 def avatar_load(request):
+    print(request)
     if request.method == 'POST':
         form = AvatarForm(request.POST, request.FILES)
         if form.is_valid  and len(request.FILES) != 0:
@@ -94,7 +95,7 @@ def avatar_load(request):
                 avatar.image = image
             avatar.save()
             messages.success(request, "Imagen cargada exitosamente")
-            return redirect('home:main')
+            return redirect('home2:index')
 
     form= AvatarForm()
     return render(

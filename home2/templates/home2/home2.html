@@ -26,17 +26,28 @@
 {% endblock %}
 
 {% block lista_de_cursos_home_content %}
-
-
-
-{% if courses %}
-<ul>
-    {% for course in courses %}
-    <li><a href="{% url 'course:course-detail' course.id %}">
-        {{course.name}}
-    </a></li>
-    {% endfor %}
-</ul>
-{% endif %}
-
+<div class="card mb-4">
+    <div class="card-header">Cursos</div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <!-- ACA HAY QUE PONER LA LISTA DE CURSOS-->
+                
+                {% if courses %}
+                
+                <ul>
+                    {% for course in courses %}
+                        <li><a href="{% url 'course:course-detail' course.id %}">
+                            {{course.name}}
+                        </a></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                
+            </div>
+            <div class="col-sm-6">
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

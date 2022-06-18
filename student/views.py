@@ -1,5 +1,7 @@
 
 from django.urls import reverse_lazy
+from django.shortcuts import render
+from course.models import Course
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -12,9 +14,11 @@ class StudentListView(ListView):
     template_name = "student/student_list.html"
 
 
+
 class StudentDetailView(DetailView):
     model = Student
     template_name = "student/student_detail.html"
+
 
 
 class StudentCreateView(LoginRequiredMixin, CreateView):

@@ -15,11 +15,12 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="{% static 'font-awesome-4.7.0/css/all.min.css' %}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     </head>
     <body>
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
+            <div class="container">                
                 <a class="navbar-brand" href="#!">Proyecto Final</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -30,7 +31,6 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'student:student-list' %}">Alumnos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'profesor:profesor-list' %}">Profesores</a></li>
                         {% if user.is_authenticated %}
-                        <a class="nav-item" href="{% url 'homework:homework-list' %}">Entregables</a>
                         <a class="btn btn-secondary" href="{% url 'user:user-update' %}">Editar usuario</a>
                         <a class="btn btn-primary" href="{% url 'user:user-logout' %}">Cerrar Sesión</a>
                         {% else %}
@@ -71,47 +71,7 @@
                         {% endblock %}
                     </article>
                     <!-- Comments section-->
-                    <section class="mb-5">
-                        <div class="card bg-light">
-                            <div class="card-body">
-                                <!-- Comment form-->
-                                <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
-                                <!-- Comment with nested comments-->
-                                <div class="d-flex mb-4">
-                                    <!-- Parent comment-->
-                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                    <div class="ms-3">
-                                        <div class="fw-bold">Commenter Name</div>
-                                        If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
-                                        <!-- Child comment 1-->
-                                        <div class="d-flex mt-4">
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                            <div class="ms-3">
-                                                <div class="fw-bold">Commenter Name</div>
-                                                And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
-                                            </div>
-                                        </div>
-                                        <!-- Child comment 2-->
-                                        <div class="d-flex mt-4">
-                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                            <div class="ms-3">
-                                                <div class="fw-bold">Commenter Name</div>
-                                                When you put money directly to a problem, it makes a good headline.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Single comment-->
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                    <div class="ms-3">
-                                        <div class="fw-bold">Commenter Name</div>
-                                        When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">
@@ -126,31 +86,16 @@
                         </div>
                     </div>
                     <!-- Categories widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Cursos</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <!-- ACA HAY QUE PONER LA LISTA DE CURSOS-->
-                                    {% block lista_de_cursos_home_content %}
-                                    
-                                    {% endblock %}
-                                </div>
-                                <div class="col-sm-6">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% block lista_de_cursos_home_content %}
+                    {% endblock %}
                     <!-- Side widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Side Widget</div>
-                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
-                    </div>
                 </div>
             </div>
         </div>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
+            <div class="display-4"><a href="https://github.com/ChuchooFerraro/Proyecto"><i class="fa fa-github"></i></a></div>
+            
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
         </footer>
         <!-- Bootstrap core JS-->
