@@ -34,12 +34,12 @@
 
 {% if courses %}
 <div class="card mb-4">
-    <div class="card-header">Cursos</div>
+    <div class="card-header text-black">Cursos</div>
     <div class="card-body">
         <div class="row">
             <div class="col-sm-6">
                 <!-- ACA HAY QUE PONER LA LISTA DE CURSOS-->
-                <ul>
+                <ul class="text-black">
                     {% for course in courses %}
                         <li><a href="{% url 'course:course-detail' course.id %}">
                             {{course.name}}

@@ -6,6 +6,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.forms.models import model_to_dict
 from django.shortcuts import redirect, render
+from .models import User
 
 
 from user.forms import UserRegisterForm, UserEditForm, AvatarForm
@@ -77,12 +78,22 @@ def user_update(request):
         template_name="user/user_form.html",
     )
 
+def get_avatar_url_ctx(request):
+    avatars = Avatar.objects.filter(user=request.user.id)
+    if avatars.exists():
+        print("URL Avatar: ",avatars[0].image.url)
+        return {"url": avatars[0].image.url}
+    return {}
 
 @login_required
 def avatar_load(request):
-    print(request)
+    avatar_ctx = get_avatar_url_ctx(request)
+    context_dict = {**avatar_ctx}
+
+    print("request de avatar: " , request)
     if request.method == 'POST':
         form = AvatarForm(request.POST, request.FILES)
+        print(form)
         if form.is_valid  and len(request.FILES) != 0:
             image = request.FILES['image']
             avatars = Avatar.objects.filter(user=request.user.id)
@@ -95,11 +106,16 @@ def avatar_load(request):
                 avatar.image = image
             avatar.save()
             messages.success(request, "Imagen cargada exitosamente")
-            return redirect('home2:index')
-
+            return redirect('user:avatar-load')
+    
     form= AvatarForm()
+    context_dict.update({
+        'form': form,
+    })
+    print("Contexto: ",context_dict)
+    
     return render(
         request=request,
-        context={"form": form},
+        context=context_dict,
         template_name="user/avatar_form.html",
     )
