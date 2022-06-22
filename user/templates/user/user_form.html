@@ -5,7 +5,20 @@
 <h2>Formulario para editar usuarios</h2>
 <a class="card_custom" href="{% url 'user:avatar-load' %}">Cambiar imagen de perfil</a>
 <hr></hr>
-<h3>Usuario: {{user.username}}</h3>
+
+{% if user.is_superuser %}
+<h3><p style="color: rgb(0, 131, 11)" >SuperUser: {{user.username}}</p></h3>
+{% else %}
+<h3><p style="color: rgb(0, 131, 11)" >Usuario: {{user.username}}</p></h3>
+{%endif%}
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 
 <form action="" method="POST">
     {% csrf_token %}
@@ -14,7 +27,6 @@
     
 </form>
 
-
-
-
 {% endblock %}
+
+

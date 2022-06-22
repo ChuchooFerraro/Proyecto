@@ -23,6 +23,7 @@ def register(request):
             form.save()
             messages.success(request, "Usuario creado exitosamente!")
             return redirect("user:user-login")
+    messages.error(request,"Algo anduvo mal, vuelve a intentarlo")
     form = UserRegisterForm()
     return render(
         request=request,
@@ -68,8 +69,8 @@ def user_update(request):
         form = UserEditForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-
-            return redirect('home2:index')
+            messages.success(request, "¡Modificado correctamente!")
+            return redirect('user:user-update')
 
     form= UserEditForm(model_to_dict(user))
     return render(

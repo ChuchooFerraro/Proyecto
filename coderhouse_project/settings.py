@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = ('asdasd')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'course',
     'home',
+
     'profesor',
     'student',
     'user',
@@ -148,3 +149,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # ckeditor configs
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+if DEBUG:
+  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+else:
+  STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
