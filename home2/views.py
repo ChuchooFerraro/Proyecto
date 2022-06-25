@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Q
-
+from datetime import datetime as dt
 from course.models import Course
 from user.models import Avatar
 
@@ -20,8 +20,11 @@ def index(request):
     courses = Course.objects.all()
     context_dict.update({
         'courses': courses,
+        'time' : dt.now(),
     })
     print('context_dict: ', context_dict)
+
+
     return render(
         request=request,
         context=context_dict,
