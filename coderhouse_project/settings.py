@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'course',
     'home',
-
+    'ckeditor_uploader',
     'profesor',
     'student',
     'user',
@@ -151,6 +151,8 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
 if DEBUG:
   STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 

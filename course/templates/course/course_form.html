@@ -7,6 +7,7 @@
 
 <form action="" method="POST">
     {% csrf_token %}
+    {{ form.media }}
     {{ form.as_p }}
     <input type="submit" class="btn btn-primary" value="Guardar curso" />
 </form>
@@ -15,14 +16,15 @@
 
 {% block lista_de_cursos_home_content %}
 
+{% if courses %}
 <div class="card mb-4">
-    <div class="card-header">Cursos</div>
+    <div class="card-header text-black">Cursos</div>
     <div class="card-body">
         <div class="row">
             <div class="col-sm-6">
                 <!-- ACA HAY QUE PONER LA LISTA DE CURSOS-->
                 
-                {% if courses %}
+                
                 
                 <ul>
                     {% for course in courses %}
@@ -31,7 +33,7 @@
                         </a></li>
                     {% endfor %}
                 </ul>
-                {% endif %}
+                
                 
             </div>
             <div class="col-sm-6">
@@ -39,4 +41,5 @@
         </div>
     </div>
 </div>
+{% endif %}
 {% endblock %}
