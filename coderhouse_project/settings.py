@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'course',
-    'home',
     'ckeditor_uploader',
     'profesor',
     'student',
