@@ -13,6 +13,7 @@
 
 
 {% block lista_de_cursos_home_content %}
+{% if courses %}
 <div class="card mb-4">
     <div class="card-header">Cursos</div>
     <div class="card-body">
@@ -20,7 +21,7 @@
             <div class="col-sm-6">
                 <!-- ACA HAY QUE PONER LA LISTA DE CURSOS-->
                 
-                {% if courses %}
+                
                 
                 <ul>
                     {% for course in courses %}
@@ -29,7 +30,7 @@
                         </a></li>
                     {% endfor %}
                 </ul>
-                {% endif %}
+                
                 
             </div>
             <div class="col-sm-6">
@@ -37,5 +38,5 @@
         </div>
     </div>
 </div>
-
+{% endif %}
 {% endblock %}
