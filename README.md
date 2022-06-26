@@ -2,11 +2,11 @@
 
 - Clonar el proyecto y cambiar de rama
 ```bash
-git clone https://github.com/coder-live-class/django-coderhouse-project.git
+git clone https://github.com/ChuchooFerraro/Proyecto.git
 
-cd django-coderhouse-project
+cd proyecto
 
-git checkout class_25
+git checkout master
 
 ```
 
@@ -24,13 +24,13 @@ source venv/bin/activate
 
 - Crear y activar entorno virtual (Linux)
 ```bash
-export SECRET_KEY='4e8&y0ygfox1cg7f3owcku9$hv_(nu7t3ku$p637-+!so2jlvs'
+export SECRET_KEY='asdasd'
 export DEBUG='True'
 export ALLOWED_HOSTS='*,'
 ```
 o crear el archivo `coderhouse_project/.env` con el siguente contenido
 ```text
-SECRET_KEY=4e8&y0ygfox1cg7f3owcku9$hv_(nu7t3ku$p637-+!so2jlvs
+SECRET_KEY=asdasd
 DEBUG=True
 ALLOWED_HOSTS=*,
 ```
@@ -150,5 +150,5 @@ git pull origin master
 Sirve para cambiar la dirección url del repositorio que tenemos por origin.
 ```bash
 git remote set-url origin <url_de_tu_repositorio_en_GitHub>
-git remote set-url origin https://github.com/coder-live-class/django-coderhouse-project.git
+git remote set-url origin https://github.com/ChuchooFerraro/Proyecto.git
 ```
